@@ -1,0 +1,290 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.dashboard {
+    width: 100%;
+    max-width: 950px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: #7f8c8d;
+}
+
+.main-content {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.panel {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    flex: 1;
+    min-width: 340px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e0e6ed;
+}
+
+.toggle-group {
+    display: flex;
+    background: #eef2f5;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    padding: 0;
+    overflow: hidden;
+}
+
+.toggle-group button {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    background: transparent;
+    color: #5b6d82;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+    border-right: 1px solid #dce4ec;
+}
+.toggle-group button:last-child {
+    border-right: none;
+}
+
+.toggle-group button.active {
+    background: #3498db;
+    color: #ffffff;
+}
+
+.row {
+    display: flex;
+    gap: 1rem;
+}
+
+.input-group {
+    margin-bottom: 1.25rem;
+    flex: 1;
+}
+
+label {
+    display: block;
+    font-size: 0.9rem;
+    color: #34495e;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+input[type="number"], select {
+    width: 100%;
+    padding: 0.8rem;
+    background: #fdfdfd;
+    border: 1px solid #cbd5e1;
+    color: #333;
+    border-radius: 6px;
+    outline: none;
+    font-size: 1rem;
+    transition: border 0.2s;
+}
+
+input[type="number"]:focus {
+    border-color: #3498db;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.radio-group-inline {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.radio-group-inline label:first-child {
+    margin-bottom: 0;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #475569;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+#calculateBtn {
+    width: 100%;
+    padding: 1rem;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 1rem;
+}
+
+#calculateBtn:hover {
+    background: #43a047;
+}
+
+.hidden { display: none !important; }
+
+/* Score and Top Metrics */
+.score-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.score-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+}
+
+.score-text h3 { margin-bottom: 0.2rem; }
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.metric-box {
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+}
+.metric-box h4 {
+    color: #64748b;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+.metric-box .value {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.2rem;
+}
+.metric-box .label {
+    font-size: 0.75rem;
+    color: #4caf50;
+}
+
+/* Detailed Calorie Table */
+.calorie-results h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid #4caf50;
+    display: inline-block;
+    padding-bottom: 0.2rem;
+}
+.calorie-results .subtitle {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+.calorie-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.calorie-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    padding: 0.8rem 1rem;
+    border-radius: 4px;
+}
+.cal-desc {
+    display: flex;
+    flex-direction: column;
+}
+.cal-desc strong {
+    color: #166534;
+    font-size: 1rem;
+}
+.cal-desc span {
+    font-size: 0.75rem;
+    color: #15803d;
+}
+.cal-amount {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.cal-val {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #166534;
+}
+.cal-perc {
+    font-size: 0.75rem;
+    color: #15803d;
+    font-weight: 600;
+}
+.cal-unit {
+    font-size: 0.7rem;
+    color: #166534;
+    opacity: 0.8;
+}
+.warning-box {
+    opacity: 0.7;
+}
+.disclaimer {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-top: 1rem;
+    line-height: 1.4;
+}
