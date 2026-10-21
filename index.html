@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Calorie & Fitness Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <h1>Fitness Metrics Dashboard</h1>
+            <p>Calculate your true body composition and comprehensive caloric needs.</p>
+        </header>
+        
+        <div class="main-content">
+            <!-- Input Section -->
+            <div class="panel input-panel">
+                <div class="toggle-group">
+                    <button id="metricBtn" class="active">Metric Units</button>
+                    <button id="imperialBtn">US Units</button>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label>Age (15 - 80)</label>
+                        <input type="number" id="age" placeholder="e.g. 25" min="15" max="80">
+                    </div>
+                </div>
+                
+                <div class="input-group radio-group-inline">
+                    <label>Gender</label>
+                    <label class="radio-label"><input type="radio" name="gender" value="male" checked> Male</label>
+                    <label class="radio-label"><input type="radio" name="gender" value="female"> Female</label>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label id="heightLabel">Height (cm)</label>
+                        <input type="number" id="height" placeholder="e.g. 180" step="any">
+                    </div>
+                    <div class="input-group">
+                        <label id="weightLabel">Weight (kg)</label>
+                        <input type="number" id="weight" placeholder="e.g. 65" step="any">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Activity Level</label>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" name="activity" value="1.0"> Basal Metabolic Rate (BMR)</label>
+                        <label class="radio-label"><input type="radio" name="activity" value="1.2"> Little or no exercise</label>
+                        <label class="radio-label"><input type="radio" name="activity" value="1.375"> Exercise 1-3 times/week</label>
+                        <label class="radio-label"><input type="radio" name="activity" value="1.465" checked> Exercise 4-5 times/week</label>
+                        <label class="radio-label"><input type="radio" name="activity" value="1.55"> Daily exercise or intense exercise 3-4 times/week</label>
+                        <label class="radio-label"><input type="radio" name="activity" value="1.725"> Intense exercise 6-7 times/week</label>
+                        <label class="radio-label"><input type="radio" name="activity" value="1.9"> Very intense exercise daily, or physical job</label>
+                    </div>
+                </div>
+
+                <button id="calculateBtn">Calculate</button>
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultsPanel" class="panel results-panel hidden">
+                <div class="score-card">
+                    <div class="score-circle">
+                        <span id="healthScore">0</span>
+                    </div>
+                    <div class="score-text">
+                        <h3>Health Score</h3>
+                        <p id="scoreMessage">Great condition!</p>
+                    </div>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <h4>BMI</h4>
+                        <span id="bmiValue" class="value">--</span>
+                        <span id="bmiCategory" class="label">--</span>
+                    </div>
+                    <div class="metric-box">
+                        <h4>Body Fat Est.</h4>
+                        <span id="bodyFatValue" class="value">--%</span>
+                        <span id="lbmValue" class="label">Lean Mass: --</span>
+                    </div>
+                </div>
+
+                <div class="calorie-results">
+                    <h3>Calorie Estimates</h3>
+                    <p class="subtitle">The results show a number of daily calorie estimates that can be used as a guideline for how many calories to consume each day to maintain, lose, or gain weight.</p>
+                    
+                    <div class="calorie-table">
+                        <div class="calorie-row">
+                            <div class="cal-desc">
+                                <strong>Maintain weight</strong>
+                            </div>
+                            <div class="cal-amount">
+                                <span id="calMaintain" class="cal-val">--</span>
+                                <span class="cal-perc" id="percMaintain">100%</span>
+                                <span class="cal-unit">Calories/day</span>
+                            </div>
+                        </div>
+                        <div class="calorie-row">
+                            <div class="cal-desc">
+                                <strong>Mild weight loss</strong>
+                                <span>0.25 kg/week</span>
+                            </div>
+                            <div class="cal-amount">
+                                <span id="calMild" class="cal-val">--</span>
+                                <span class="cal-perc" id="percMild">--%</span>
+                                <span class="cal-unit">Calories/day</span>
+                            </div>
+                        </div>
+                        <div class="calorie-row">
+                            <div class="cal-desc">
+                                <strong>Weight loss</strong>
+                                <span>0.5 kg/week</span>
+                            </div>
+                            <div class="cal-amount">
+                                <span id="calLoss" class="cal-val">--</span>
+                                <span class="cal-perc" id="percLoss">--%</span>
+                                <span class="cal-unit">Calories/day</span>
+                            </div>
+                        </div>
+                        <div class="calorie-row">
+                            <div class="cal-desc">
+                                <strong>Extreme weight loss</strong>
+                                <span>1 kg/week</span>
+                            </div>
+                            <div class="cal-amount warning-box">
+                                <span id="calExtreme" class="cal-val">--</span>
+                                <span class="cal-perc" id="percExtreme">--%</span>
+                                <span class="cal-unit">Calories/day</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="disclaimer">Please consult with a doctor when losing 1 kg or more per week since it requires that you consume less than the minimum recommendation of 1,500 calories a day.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+                              </html>
+                              
